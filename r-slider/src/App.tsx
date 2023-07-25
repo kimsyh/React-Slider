@@ -1,28 +1,22 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
-import { useState } from "react";
-
 export default function App() {
-  const [startX, setStartX] = useState(); //처음 클릭한 x좌표
-
-  //screenX, screenY (왼쪽 상단 모서리가 0,0)
-  //pageX, pageY ()
   const pointer = document.querySelector("#point");
 
-  const dragStartHandler = (e: any) => {
-    //let posX = e.clientX;
-    //let posY = e.clientY;
+  const dragStargetHandler = (e: any) => {
+    let posX = e.clientX;
+    let posY = e.clientY;
 
-    //    let originalX = e.targe=t.offsetLeft;
-    // let originalY = e.target.offsetTop;
-    console.log("1", e);
+    let originalX = e.target.offsetLeft;
+    let originalY = e.target.offsetTop;
+
+    console.log("x", posX, "y", posY);
+    console.log("originalX", originalX, "originalY", originalY);
   };
 
-  pointer?.addEventListener("drag", (e) => {
-    console.log("drag");
-    dragStartHandler(e);
+  pointer?.addEventListener("click", (event) => {
+    dragStargetHandler(event);
   });
 
   return (
